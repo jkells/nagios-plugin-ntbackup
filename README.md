@@ -16,13 +16,13 @@ Prerequisites
 
 Configuration
 -------------
-* Update the BACKUP_DIRECTORY constant in check_nt_backup.rb to point to NTBackup log directory. This directory
-is in the userprofile of the user account that runs NTBackup.
+* Update the BACKUP_DIRECTORY constant in check_nt_backup.rb to point to the NTBackup log directory. This directory
+is in the user profile of the user account that runs NTBackup.
 * If you don't run backups every night you may need to adjust the MAX_AGE constant in the script.
 
-Example Config File
+Example NSC.ini
 -------------------
-This is a sample NSC.ini file. In a default installation it will be here: C:\Program Files\NSClient++\
+In a default installation it will be here: C:\Program Files\NSClient++\
 
 The following is a minimalist NSC.ini file. This will get you up and running but you should
 probably configure NSC++ with a proper allowed_hosts directive and a password.
