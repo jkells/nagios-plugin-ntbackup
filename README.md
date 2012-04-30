@@ -10,7 +10,7 @@ Prerequisites
 -------------
  * Install NSClient++: http://www.nsclient.org/nscp
  * Install ruby: http://rubyinstaller.org/
- * Place the .rb script in the NSClient++ scripts folder, i.e: C:\Program Files\NSClient++\scripts
+ * Place the .rb scripts in the NSClient++ scripts folder, i.e: C:\Program Files\NSClient++\scripts
  * Configure the script as an external script for NSClient++. See the sample below if you need help.
  * General information about monitoring Windows machines with Nagios can be found here: http://www.nsclient.org/nscp
 
