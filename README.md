@@ -19,6 +19,8 @@ Configuration
 * Update the BACKUP_DIRECTORY constant in check_nt_backup.rb to point to NTBackup log directory. This directory
 is in the userprofile of the user account that runs NTBackup.
 * If you don't run backups every night you may need to adjust the MAX_AGE constant in the script.
+* The MAX_AGE array specifies a different number of hours for each day. This is in case you don't run
+  backups on weekends.
 
 Example Config File
 -------------------

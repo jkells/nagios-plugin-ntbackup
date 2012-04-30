@@ -5,10 +5,19 @@
 # License: MIT (See: LICENSE)
 #
 
-# Critical error if the backups hasn't run in MAX_AGE hours.
-
-MAX_AGE = 32
+require 'date'
 BACKUP_DIRECTORY = "C:/Documents and Settings/Administrator/Local Settings/Application Data/Microsoft/Windows NT/NTBackup/data"
+# Critical error if the backups hasn't run in MAX_AGE hours.
+# Define MAX_AGE for each day of the week.
+MAX_AGE = [
+  24 + 24,      # Sunday
+  24 + 24 + 24, # Monday
+  24,           # Tuesday
+  24,           # Wednesday
+  24,           # Thursday
+  24,           # Friday
+  24,           # Saturday
+]
 
 def report_critical(message)
   puts "Critical: " + message
@@ -39,7 +48,7 @@ def check_log_file
     latest_log_file = File.new(files.first, "rb:utf-16le:utf-8")
 
     unless backup_is_recent?(latest_log_file)
-      report_critical("Last backup performed more than 32 hours ago.")
+      report_critical("Last backup performed more than #{MAX_AGE[Date.today.wday]} hours ago.")
     end
 
     unless backup_was_success?(latest_log_file)
@@ -55,7 +64,7 @@ def backup_is_recent?(latest_log_file)
   modified_time = latest_log_file.mtime
   age_seconds = Time.now - modified_time
   age_hours = age_seconds / 60.0 /60.0
-  age_hours < MAX_AGE
+  age_hours < MAX_AGE[Date.today.wday]
 end
 
 def backup_was_success?(latest_log_file)
